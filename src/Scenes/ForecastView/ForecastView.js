@@ -2,20 +2,30 @@ import React from 'react';
 import Body from '../../Components/Body';
 import Grid from '@material-ui/core/Grid';
 import Box from '../../Components/Box'
-import ForecastCity from './ForecastCity';
+import CityForecast from './CityForecast';
 
 const getForecastCities = (cities) => {
     return cities.map( city => {
         return(
             <Box key={city.name}>
-                <ForecastCity name={city.name} country={city.country} />
+                <CityForecast 
+                    name={city.name} 
+                    country={city.country} 
+                    timezone={city.timezone}
+                    temperature={city.temperature} />
             </Box>
         )
     })
 }
 
 const ForecastView = (props) => {
-    console.log(props);
+    if(props.cities.length === 0){
+        return(
+            <div className="loading">
+                <h3>Cargando forecast ...</h3>
+            </div>
+        )
+    }
     return (
         <div className="ForecastView">
             <Body>
