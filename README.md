@@ -1,7 +1,7 @@
-##Introduction
+## Introduction
 Client app for Acid Labs job application test. 
 
-##Test's Description
+## Test's Description
 Se desea mostrar en pantalla completa la hora y la temperatura y hora de las siguientes ciudades:
 
 Santiago (CL), Zurich (CH), Auckland (NZ), Sydney (AU), Londres (UK), Georgia (USA)
@@ -22,4 +22,14 @@ El temas el diseño esta 100% en tus manos, nos interesa mas la funcionalidad y 
 
 La aplicación debera ser subida a AWS o Heroku (tu eleccion) y a un repositorio de Git, recuerda documentar como se sube!
 
-##Configuration
+## Configuration 
+Following instructions for Debian/Ubuntu
+1. Install node version manager: $`curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash`
+2. Install current node version 10.10.0: $ `nvm install 10.10.0`
+3. install yarn
+  3.1 $`curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -`
+  3.2 $`echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list`
+  3.3 $ `sudo apt-get update && sudo apt-get install yarn`
+4. Clone repo
+5. Install repo dependencies: `cd <repo path> && yarn install`
+6. If all dependencies were correctly installed, then proceed to start the app: $`sudo PORT=80 yarn start`
