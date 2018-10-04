@@ -1,5 +1,6 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
+import Chip from '@material-ui/core/Chip';
 import Grid from '@material-ui/core/Grid';
 import Clock from 'react-clock';
 import PropTypes from 'prop-types';
@@ -21,7 +22,9 @@ const CityForecast = (props) => {
         <Paper>
             <Grid container>
                 <Grid item xs={12}>
-                    <p>{props.country}</p>
+                    <Chip label={props.country} style={{marginTop: "1rem"}} />
+                </Grid>
+                <Grid item xs={12}>
                     <h2 className="city">{props.name.replace(/\b\w/g, l => l.toUpperCase())}</h2>
                 </Grid>
                 <Grid item xs={12}>

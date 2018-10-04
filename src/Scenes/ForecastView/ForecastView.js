@@ -3,6 +3,9 @@ import Body from '../../Components/Body';
 import Grid from '@material-ui/core/Grid';
 import Box from '../../Components/Box'
 import CityForecast from './CityForecast';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
+import './ForecastView.css';
 
 const getForecastCities = (cities) => {
     return cities.map( city => {
@@ -22,7 +25,7 @@ const ForecastView = (props) => {
     if(props.cities.length === 0){
         return(
             <div className="loading">
-                <h3>Cargando forecast ...</h3>
+                <CircularProgress size={100} style={{color: "black"}} />
             </div>
         )
     }

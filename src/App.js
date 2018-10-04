@@ -11,7 +11,7 @@ const cities = [
   {
       name: "santiago",
       country: "Chile",
-      timezone: "Americas/Santiago",
+      timezone: "America/Santiago",
       temperature: 72
   },
   {
@@ -58,13 +58,13 @@ class App extends Component {
   }
 
   componentDidMount(){
-    //startUpdateChannel(this.updateCities);
+    startUpdateChannel(this.updateCities);
   }
 
   render() {
     return (
       <div className="App">
-        <ForecastView cities={cities}/>
+        <ForecastView cities={this.state.cities}/>
       </div>
     );
   }
