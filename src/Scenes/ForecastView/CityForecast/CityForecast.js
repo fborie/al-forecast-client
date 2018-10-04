@@ -16,8 +16,17 @@ const getDate = (timezone) => {
     return new Date(momentWithTimezone);
 }
 
+const capitalize = (word) => {
+    return word.replace(/\b\w/g, l => l.toUpperCase());
+}
+
 const CityForecast = (props) => {
     let date = getDate(props.timezone);
+    let name = capitalize(props.name);
+    let dateFormatted = moment(date).format('MMMM DD - h:mm:ss a');
+    dateFormatted = capitalize(dateFormatted);
+    let farenheit = Math.trunc(props.temperature);
+    let celcius = Math.trunc((props.temperature-32)*(5/9));
     return(
         <Paper>
             <Grid container>
@@ -25,10 +34,10 @@ const CityForecast = (props) => {
                     <Chip label={props.country} style={{marginTop: "1rem"}} />
                 </Grid>
                 <Grid item xs={12}>
-                    <h2 className="city">{props.name.replace(/\b\w/g, l => l.toUpperCase())}</h2>
+                    <h2 className="city">{name}</h2>
                 </Grid>
                 <Grid item xs={12}>
-                    <p className="time">{moment(date).format('MMMM DD - h:mm:ss a').replace(/\b\w/g, l => l.toUpperCase())}</p>
+                    <p className="time">{dateFormatted}</p>
                 </Grid>
                 <Grid item xs={12} align="center">
                     <Clock
@@ -38,10 +47,10 @@ const CityForecast = (props) => {
                 <Grid item xs={12}>
                     <Grid container>
                         <Grid item xs={6}>
-                            <p style={{fontSize: "30px"}}>{props.temperature}°F</p>
+                            <p style={{fontSize: "30px"}}>{farenheit}°F</p>
                         </Grid>
                         <Grid item xs={6}>
-                            <p style={{fontSize: "30px"}}>{Math.trunc((props.temperature-32)*(5/9))}°C</p>
+                            <p style={{fontSize: "30px"}}>{celcius}°C</p>
                         </Grid>
                     </Grid>
                 </Grid>
